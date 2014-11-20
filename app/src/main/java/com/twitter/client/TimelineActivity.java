@@ -32,6 +32,8 @@ import twitter4j.auth.RequestToken;
 
 public class TimelineActivity extends ActionBarActivity {
     public static final String TAG = "MainActivity";
+    public static String TWITTER_CALLBACK_URL = "oauth://com.twitter.client_oAuth";
+    public static String URL_PARAMETER_TWITTER_OAUTH_VERIFIER = "oauth_verifier";
 
     private String GET_LOCATION_CHANGE_MESSAGE = "com.twitter.client.LOCATION_READY";
     private int UPDATE_LOCATION_MIN_TIME = 120000; // 2 min
@@ -101,8 +103,8 @@ public class TimelineActivity extends ActionBarActivity {
      */
     private void initTwitterAuthParams() {
         Uri uri = getIntent().getData();
-        if (uri != null && uri.toString().startsWith(Constants.TWITTER_CALLBACK_URL)) {
-            String verifier = uri.getQueryParameter(Constants.URL_PARAMETER_TWITTER_OAUTH_VERIFIER);
+        if (uri != null && uri.toString().startsWith(TWITTER_CALLBACK_URL)) {
+            String verifier = uri.getQueryParameter(URL_PARAMETER_TWITTER_OAUTH_VERIFIER);
             new InitParamsTask().execute(verifier);
         } else
             new InitParamsTask().execute("");

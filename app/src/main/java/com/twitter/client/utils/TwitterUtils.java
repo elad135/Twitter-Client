@@ -28,6 +28,9 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 public class TwitterUtils {
     private static final String TAG = "TwitterUtils";
+    public static String TWITTER_CALLBACK_URL = "oauth://com.twitter.client_oAuth";
+    public static String TWITTER_CONSUMER_KEY = "WmKLPyaj4zWXf49h2uMoGaRhz";
+    public static String TWITTER_CONSUMER_SECRET = "pn2GP65lLiIzsQhHtie88HTT4bObcu2eTxbWOVzt8d17GLOFPt";
 
     private RequestToken requestToken = null;
     private TwitterFactory twitterFactory = null;
@@ -45,8 +48,8 @@ public class TwitterUtils {
 
     public TwitterUtils(Context context) {
         ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-        configurationBuilder.setOAuthConsumerKey(Constants.TWITTER_CONSUMER_KEY);
-        configurationBuilder.setOAuthConsumerSecret(Constants.TWITTER_CONSUMER_SECRET);
+        configurationBuilder.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
+        configurationBuilder.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
         Configuration configuration = configurationBuilder.build();
         twitterFactory = new TwitterFactory(configuration);
         twitter = twitterFactory.getInstance();
@@ -71,7 +74,7 @@ public class TwitterUtils {
     public RequestToken getRequestToken() {
         if (requestToken == null) {
             try {
-                requestToken = twitterFactory.getInstance().getOAuthRequestToken(Constants.TWITTER_CALLBACK_URL);
+                requestToken = twitterFactory.getInstance().getOAuthRequestToken(TWITTER_CALLBACK_URL);
             } catch (TwitterException e) {
                 e.printStackTrace();
             }

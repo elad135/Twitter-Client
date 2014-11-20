@@ -23,6 +23,7 @@ public class LocationReceiver extends BroadcastReceiver {
         Bundle bundle = intent.getExtras();
         Location location = (Location) bundle.get(android.location.LocationManager.KEY_LOCATION_CHANGED);
 
+        // Update statuses in the background if this option is enabled
         if (location != null && PrefUtils.getUpdateLocation(context)) {
             Log.d(TAG, "Curr Lat: " + location.getLatitude() + ", curr Long: " + location.getLongitude());
             // Update SharedPrefs with current coords
