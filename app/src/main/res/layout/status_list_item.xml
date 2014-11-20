@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/default_profile"
+        app:border_width="2dp"
+        android:layout_margin="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/profile_image"
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status text"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/status_hashtags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#something"
+            android:textColor="#107FC9"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profile_image"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_location"
+                android:layout_marginRight="8dp"/>
+
+            <TextView
+                android:id="@+id/status_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Israel"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
